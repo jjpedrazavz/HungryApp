@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HungryApp.Pages.Food.CategoriaCartaPage">
+
+
+            <StackLayout x:Name="LayoutFoodContent" HeightRequest="0">
+                <ListView x:Name="FoodList" ItemSelected="TappedElement_ItemSelected">
+                    <ListView.RowHeight>
+                        <OnPlatform x:TypeArguments="x:Int32"
+                                Android="80"
+                                iOS="80"
+                                WinPhone="90">
+                        </OnPlatform>
+                    </ListView.RowHeight>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView Padding="5">
+                                    <Frame Padding="10" OutlineColor="Accent">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="cola600ml.jpg" HeightRequest="50" WidthRequest="50"/>
+                                            <StackLayout>
+                                                <Label TextColor="Black" Text="{Binding Nombre}" FontAttributes="Bold"></Label>
+                                                <Label TextColor="Black"  Text="{Binding Precio, StringFormat='Precio {0} MXN'}" FontAttributes="Bold"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+</ContentPage>

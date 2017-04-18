@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>61b4519d-5336-42e5-be10-7486af801448</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>HungryApp</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Contratos\IServiceMenuFood.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Contratos\IServiceOrders.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InitModulos\Initialize.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ioc\IModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ioc\Ioc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Alimentos.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\MenuBundle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Orders\DetailedMenuCartaViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Food\CartaPage.xaml.cs">
+      <DependentUpon>CartaPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\SuperTestPage.xaml.cs">
+      <DependentUpon>SuperTestPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Basket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Categorias.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Comensales.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Estado.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Food.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\FoodImageMapping.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\FoodImages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Menu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Ordenes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Tipos.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Navigation\NavigationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Food\CategoriaCartaPage.xaml.cs">
+      <DependentUpon>CategoriaCartaPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Food\ComidasDiaPage.xaml.cs">
+      <DependentUpon>ComidasDiaPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Food\DetailedBuiltInMenuOrderPage.xaml.cs">
+      <DependentUpon>DetailedBuiltInMenuOrderPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Food\DetailedFoodPage.xaml.cs">
+      <DependentUpon>DetailedFoodPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\Orders\BasketPage.xaml.cs">
+      <DependentUpon>BasketPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ServiceOrdersImp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ServicesMenuFoodImp.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BuiltInMenuViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Orders\DetailedBuiltInMenuViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Orders\MenuViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Orders\ClientOrdersViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Orders\SummaryBuiltInMenuViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)enums\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Food\ComidasDiaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Food\CategoriaCartaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Food\DetailedBuiltInMenuOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Orders\BasketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Food\DetailedFoodPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\SuperTestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Food\CartaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

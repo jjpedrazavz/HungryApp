@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HungryApp.Pages.Food.CartaPage">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Image x:Name="imgSopas" StyleId="1" Grid.Column="0" Grid.Row="0" Source="sopas.jpg"
+               Margin="10,10,10,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        
+        <Image x:Name="imgPlatosFuertes" StyleId="2" Grid.Column="1" Grid.Row="0" Source="sopas.jpg" Margin="10,10,10,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        
+        <Image x:Name="imgPostres" StyleId="3" Grid.Column="0" Grid.Row="1" Source="sopas.jpg" Margin="10,10,10,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        
+        <Image x:Name="imgBebidas" StyleId="4" Grid.Column="1" Grid.Row="1" Source="sopas.jpg" Margin="10,10,10,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        
+        <Image x:Name="imgBocadillos"  StyleId="5" Grid.Column="0" Grid.Row="2" Source="sopas.jpg" Margin="10,10,10,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        
+        <Image x:Name="imgComplementos" StyleId="6" Grid.Column="1" Grid.Row="2" Source="sopas.jpg" Margin="10,10,10,10">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+
+
+    </Grid>
+
+    
+</ContentPage>

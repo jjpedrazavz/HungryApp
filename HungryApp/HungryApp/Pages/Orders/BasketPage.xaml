@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HungryApp.Pages.Orders.BasketPage">
+
+
+    <Grid x:Name="MainLayout">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="lblTitleBasket" Grid.Column="0" Grid.Row="0" Text="{Binding TitleBasket}"
+               HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" >
+        </Label>
+
+        <StackLayout x:Name="LayoutSummary" Grid.Column="0" Grid.Row="1" IsVisible="{Binding IsVisibleSummaryLayout, Mode=TwoWay}">
+
+
+            <Grid x:Name="SubLayoutSummary">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+
+                <StackLayout x:Name="LayoutDayMenuCollection" Grid.Column="0" Grid.Row="0" IsVisible="{Binding IsVisibleDaymenuCollection, Mode=TwoWay}">
+                    <Label x:Name="lblTitleDayMenu" Text="Menus del dia Seleccionados" Margin="0,0,0,5"/>
+                    <ListView x:Name="DayMenuCollection" ItemsSource="{Binding BuiltInMenuSeleccionado}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ContentView Padding="5">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal" Margin="0,0,5,5">
+                                                <Label Text="{Binding NameMenu}" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Quantity, StringFormat='x{0}'}"/>
+                                                <Label Text="{Binding Totalprice, StringFormat=' ${0}'}" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ContentView>
+
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Remove" IsDestructive="True"
+                                                  BindingContext="{Binding Source={x:Reference MainLayout},
+                                                                           Path=BindingContext}"
+                                                  Command="{Binding RemoveSummaryBuiltInMenuCommand}"
+                                                  CommandParameter="{Binding Source={x:Reference DayMenuCollection}, 
+                                                                             Path=SelectedItem}"/>
+                                    </ViewCell.ContextActions>
+                                    
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+                </StackLayout>
+
+                <StackLayout x:Name="LayoutCartaMenuCollection" Grid.Column="0" Grid.Row="1" IsVisible="{Binding IsVisibleCartaMenuCollection, Mode=TwoWay}">
+                    <Label x:Name="lblTitleMenuSelec" Text="Menu a la Carta Seleccionados" Margin="0,0,0,5"/>
+                    <ListView x:Name="CartaMenuCollection" ItemsSource="{Binding MenuSeleccionado}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell x:Name="cellTest">
+                                    <ContentView Padding="5">
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal" Margin="0,0,5,5">
+                                                <Label x:Name="lbltest" Text="{Binding Nombre}" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Cantidad, StringFormat='x{0}'}"/>
+                                                <Label Text="{Binding Total, StringFormat=' ${0}'}" FontAttributes="Bold"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ContentView>
+
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Remove" IsDestructive="True" 
+                                                  BindingContext="{Binding Source={x:Reference MainLayout},
+                                                                           Path=BindingContext}"
+                                                  Command="{Binding RemoveDetailedMenuCartaCommand}"
+                                                  CommandParameter="{Binding Source={x:Reference CartaMenuCollection},
+                                                                             Path=SelectedItem}"/>
+                                    </ViewCell.ContextActions>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+
+
+                <Label x:Name="lblTotalFinal" Grid.Column="0" Grid.Row="2"
+                       Text="{Binding TotalFinalOrden, StringFormat='Total a pagar: {0} MXN'}" VerticalOptions="Center"></Label>
+                
+                <Button x:Name="btnOrder" Text="Ordenar" Grid.Column="0" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Center"
+                        Command="{Binding CreateOrderCommand}"/>
+            
+            </Grid>
+            
+        </StackLayout>
+        
+    </Grid>
+    
+</ContentPage>
