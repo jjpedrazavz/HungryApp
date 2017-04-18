@@ -99,7 +99,7 @@ namespace HungryApp.Models.Basket
             TitleBasket = respuesta ? "Resumen de la Orden" : "Empty Basket";
         }
 
-        private void GenerateMenuOrder()
+        private async void GenerateMenuOrder()
         {
             ClientOrdersViewModel viewModel = new ClientOrdersViewModel();
             viewModel.menuSeleccionado = new List<MenuViewModel>();
@@ -120,10 +120,19 @@ namespace HungryApp.Models.Basket
             var _ServiceOrdersService = Ioc.Ioc.Resolve<IServiceOrders>();
 
 
-            _ServiceOrdersService.CreateOrder(viewModel);
+            if (await _ServiceOrdersService.CreateOrder(viewModel))
+                CleanBasket();
+                
 
+        }
 
-
+        private void CleanBasket()
+        {
+            MenuSeleccionado.Clear();
+            BuiltInMenuSeleccionado.Clear();
+            TotalFinalOrden = 0;
+            IsVisibleSummaryLayout = false;
+            VerifyTitleBasket((TotalFinalOrden != 0));
 
 
         }
@@ -156,6 +165,7 @@ namespace HungryApp.Models.Basket
         {
             BuiltInMenuSeleccionado.Remove(menu);
             TotalFinalOrden -= menu.Totalprice;
+
             BuiltInMenuSeleccionadoSize = BuiltInMenuSeleccionado.Count;
             IsVisibleDaymenuCollection = BuiltInMenuSeleccionadoSize != 0;
             IsEmptyBasket();

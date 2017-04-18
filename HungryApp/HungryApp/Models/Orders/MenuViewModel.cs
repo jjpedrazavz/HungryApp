@@ -8,7 +8,7 @@ namespace HungryApp.ViewModels
     {
         public int? AlimentoID { get; set; }
 
-        public int? BundleId { get; set; }
+        public int BundleId { get; set; }
 
         public int Cantidad { get; set; }
 
