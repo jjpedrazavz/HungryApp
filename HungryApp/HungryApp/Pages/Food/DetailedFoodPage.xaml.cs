@@ -25,13 +25,12 @@ namespace HungryApp.Pages.Food
             BindingContext = alimento;
             total = alimento.Precio;
             lblQuantity.Text = cantidad.ToString();
-            lblPrecio.Text = total.ToString();
             lblPrecioFinal.Text = string.Format("{0} MXN", total);
         }
 
         private void btnQuantity_Clicked(object sender, EventArgs e)
         {
-            if ((sender as Button).Text.Equals("+"))
+            if ((sender as Button).StyleId.Equals("b+"))
             {
                 cantidad++;
                 lblQuantity.Text = cantidad.ToString();

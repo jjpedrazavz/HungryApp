@@ -1,4 +1,5 @@
 ﻿using CoreService.Models;
+using HungryApp.Models.Orders;
 using HungryApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace HungryApp.Contratos
     public interface IServiceOrders
     {
         Task<bool> CreateOrder(ClientOrdersViewModel viewModel);
-        Task GetSummaryOrders();
+        Task<IEnumerable<SlimOrderViewModel>> GetSummaryOrders(int clientID);
     }
 }

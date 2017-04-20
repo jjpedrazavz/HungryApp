@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
 
 namespace HungryApp.iOS
 {
@@ -27,5 +28,18 @@ namespace HungryApp.iOS
 
 			return base.FinishedLaunching (app, options);
 		}
-	}
+
+        public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations(UIApplication application, UIWindow forWindow)
+        {
+            switch (Device.Idiom)
+            {
+                case TargetIdiom.Phone:
+                    return UIInterfaceOrientationMask.Portrait;
+                case TargetIdiom.Tablet:
+                    return UIInterfaceOrientationMask.Landscape;
+                default:
+                    return UIInterfaceOrientationMask.Portrait;
+            }
+        }
+    }
 }

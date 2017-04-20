@@ -7,6 +7,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using HungryApp.InitModulos;
+using Xamarin.Forms;
+using Android.Content.Res;
 
 namespace HungryApp.Droid
 {
@@ -16,7 +18,7 @@ namespace HungryApp.Droid
 		protected override void OnCreate (Bundle bundle)
 		{
 			TabLayoutResource = Resource.Layout.Tabbar;
-			ToolbarResource = Resource.Layout.Toolbar; 
+			ToolbarResource = Resource.Layout.Toolbar;
 
 			base.OnCreate (bundle);
 
@@ -27,6 +29,57 @@ namespace HungryApp.Droid
 
             LoadApplication (new HungryApp.App ());
 		}
+
+
+        public override void OnConfigurationChanged(Configuration newConfig)
+        {
+            base.OnConfigurationChanged(newConfig);
+
+
+            switch (newConfig.Orientation)
+            {
+                case Android.Content.Res.Orientation.Landscape:
+                    switch (Device.Idiom)
+                    {
+                        case TargetIdiom.Phone:
+                            LockRotation(Android.Content.Res.Orientation.Portrait);
+                            break;
+                        case TargetIdiom.Tablet:
+                            LockRotation(Android.Content.Res.Orientation.Landscape);
+                            break;
+                    }
+                    break;
+                case Android.Content.Res.Orientation.Portrait:
+                    switch (Device.Idiom)
+                    {
+                        case TargetIdiom.Phone:
+                            LockRotation(Android.Content.Res.Orientation.Portrait);
+                            break;
+                        case TargetIdiom.Tablet:
+                            LockRotation(Android.Content.Res.Orientation.Landscape);
+                            break;
+                    }
+                    break;
+            }
+
+
+
+        }
+
+
+        private void LockRotation(Android.Content.Res.Orientation orientation)
+        {
+            switch (orientation)
+            {
+                case Android.Content.Res.Orientation.Portrait:
+                    RequestedOrientation = ScreenOrientation.Portrait;
+                    break;
+                case Android.Content.Res.Orientation.Landscape:
+                    RequestedOrientation = ScreenOrientation.Landscape;
+                    break;
+            }
+        }
+
 
         private void InitIOC()
         {

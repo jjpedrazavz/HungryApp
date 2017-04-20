@@ -6,10 +6,11 @@
     <Grid x:Name="MainContent">
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -18,41 +19,47 @@
         </Grid.ColumnDefinitions>
 
 
-        <StackLayout x:Name="MenuLayout" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="Lime">
+        <Image Source="Banner2.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"></Image>
 
-            <Label  x:Name="titleMenu" Text="{Binding NameMenu}" Margin="10,5,10,5" FontSize="Large"/>
-            <Label  x:Name="lblsopaMenu" Text="{Binding SopaNombre}" FontAttributes="Bold"/>
-            <Label  x:Name="lblplatoFuerteMenu" Text="{Binding PlatoFuerteNombre}" FontAttributes="Bold"/>
-            <Label  x:Name="lblbebidaMenu" Text="{Binding BebidaNombre}" FontAttributes="Bold"/>
-            <Label  x:Name="lblpostreMenu" Text="{Binding PostreNombre}" FontAttributes="Bold"/>
-            <Label  x:Name="lblcomplementoMenu" Text="{Binding ComplementoNombre}" FontAttributes="Bold"/>
-            
-            <StackLayout Orientation="Horizontal" Padding="0,10,0,5">
-                <Label  x:Name="lblTotalUnitario"  Text="Precio Unitario:" FontAttributes="Bold"/>
-                <Label  x:Name="lblPrecioUnitario" Text="{Binding precio}" FontAttributes="Bold" FontSize="Large"/>
+        <Label Text="MENU" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+               HorizontalOptions="Center" VerticalOptions="Center"/>
+
+        <StackLayout x:Name="MenuLayout" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
+
+            <StackLayout BackgroundColor="Orange" Margin="0,0,0,5">
+                <Label  x:Name="titleMenu" Text="{Binding NameMenu}" Margin="10,5,10,5" FontSize="Large" FontAttributes="Italic"/>
             </StackLayout>
 
-
+            <StackLayout BackgroundColor="Lime">
+                <Label  x:Name="lblsopaMenu" Text="{Binding SopaNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label  x:Name="lblplatoFuerteMenu" Text="{Binding PlatoFuerteNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label  x:Name="lblbebidaMenu" Text="{Binding BebidaNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label  x:Name="lblpostreMenu" Text="{Binding PostreNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <Label  x:Name="lblcomplementoMenu" Text="{Binding ComplementoNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
+            </StackLayout>
+     
+            
         </StackLayout>
 
 
-
-        <StackLayout x:Name="layoutCountOrders" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" >
+        <StackLayout x:Name="layoutCountOrders" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,5,0,5" >
             
             <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Cantidad :" Margin="0,5,5,0" FontSize="Medium"/>
                 <Button x:Name="btnMinus" Text="-" BorderRadius="50" HeightRequest="40" WidthRequest="40" Clicked="btnQuantity_Clicked"></Button>
-                <Label x:Name="lblQuantity" Text="{Binding Quantity }" ></Label>
+                <Label x:Name="lblQuantity" Text="{Binding Quantity}" Margin="0,8,5,0" FontAttributes="Bold" ></Label>
                 <Button x:Name="btnPlus" Text="+" BorderRadius="50" HeightRequest="40" WidthRequest="40" Clicked="btnQuantity_Clicked"></Button>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" Padding="0,5,10,0">
                 <Label x:Name="lblTotal"   Text="Precio Final: " FontAttributes="Bold"></Label>
-                <Label x:Name="lblPrecio"  Text="{Binding Totalprice}" FontAttributes="Bold"></Label>
+                <Label x:Name="lblPrecio"  Text="{Binding Totalprice, StringFormat='{0} MXN'}" FontAttributes="Bold"></Label>
             </StackLayout>
 
         </StackLayout>
+        
             
-       <Button x:Name="btnProcess" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center"
+       <Button x:Name="btnProcess" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,20"
                Text="Add Order to Basket" Clicked="ProcessClickEvent" />
     </Grid>
 

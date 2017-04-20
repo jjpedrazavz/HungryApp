@@ -18,9 +18,10 @@ namespace HungryApp.Pages.Food
 			InitializeComponent();
             MenuLayout.BindingContext = viewModel;
             layoutCountOrders.BindingContext = viewModelSummary;
-            viewModelSummary.Totalprice = (MenuLayout.BindingContext as DetailedBuiltInMenuViewModel).precio;
+            viewModelSummary.Totalprice = viewModel.precio;
 
         }
+
 
         private async void ProcessClickEvent(object sender, EventArgs e)
         {

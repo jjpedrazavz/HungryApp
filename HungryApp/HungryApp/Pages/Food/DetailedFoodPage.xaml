@@ -12,43 +12,60 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="10"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="15"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
 
 
-        <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="Pink"/>
-        
-        <Label x:Name="lblName" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Nombre}"
-               FontAttributes="Italic" FontSize="Medium" HorizontalOptions="Center"/>
-        
-        <Label x:Name="lblDescription" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"  Text="{Binding Descripcion, StringFormat='Descripcion: {0}'}"
-               FontAttributes="Italic"/>
-        
-        <Label x:Name="lblCantidad" Grid.Column="0" Grid.Row="4" Text="Precio Unitario"/>
-        <Label x:Name="lblPrecio" Grid.Column="1" Grid.Row="4" Text="{Binding Precio, StringFormat='{0} MXN'}" HorizontalOptions="Start"/>
+        <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Source="BannerAlimentos.png" HorizontalOptions="FillAndExpand"/>
 
-        <StackLayout x:Name="layoutCountOrders" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" >
+        <Label Text="MENU" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontAttributes="Bold"/>
 
-            <StackLayout Orientation="Horizontal" Padding="0,0,10,0">
-                <Button x:Name="btnMinus" Text="-" BorderRadius="50" HeightRequest="40" WidthRequest="40" Clicked="btnQuantity_Clicked"></Button>
-                <Label x:Name="lblQuantity" Margin="0,5,0,5" TextColor="Red" FontAttributes="Bold" FontSize="Large"></Label>
-                <Button x:Name="btnPlus" Text="+" BorderRadius="50" HeightRequest="40" WidthRequest="40"
+        <Frame BackgroundColor="Orange" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,0,5">
+            
+            <Label x:Name="lblName" Text="{Binding Nombre}" FontAttributes="Italic" FontSize="Medium" HorizontalOptions="Start" TextColor="White"/>
+        </Frame>
+
+
+        <StackLayout Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Horizontal" Margin="25,5,10,25">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+            
+            <Label x:Name="lblDescription" Grid.Column="0" Grid.Row="0" Margin="0,0,20,0"  Text="{Binding Descripcion}" FontAttributes="Bold"/>
+
+                <StackLayout Orientation="Horizontal" Padding="0,5,0,5" Grid.Column="0" Grid.Row="1">
+                    <Button x:Name="btnMinus" StyleId="b-" Image="buttonMinus.png" BorderRadius="50" HeightRequest="35" WidthRequest="40" Clicked="btnQuantity_Clicked"></Button>
+                    <Label x:Name="lblQuantity" Margin="0,5,0,5" TextColor="Red" FontAttributes="Bold" FontSize="Large"></Label>
+                    <Button x:Name="btnPlus" StyleId="b+" Image="buttonPlus.png" BorderRadius="50" HeightRequest="35" WidthRequest="40"
                         Clicked="btnQuantity_Clicked" FontAttributes="Bold" FontSize="Large" TextColor="Green">
-                </Button>
-            </StackLayout>
+                    </Button>
+                </StackLayout>
 
-            <StackLayout Orientation="Horizontal" Padding="0,5,10,0">
-                <Label x:Name="lblTotal"   Text="Precio Final: " FontAttributes="Bold" FontSize="Large"></Label>
-                <Label x:Name="lblPrecioFinal"  FontAttributes="Bold" FontSize="Large"></Label>
-            </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0,5,10,0" Grid.Column="0" Grid.Row="2">
+                    <Label x:Name="lblTotal"   Text="Costo: " FontAttributes="Bold" FontSize="Medium"></Label>
+                    <Label x:Name="lblPrecioFinal"  FontAttributes="Bold" FontSize="Medium"></Label>
+                </StackLayout>
+
+            </Grid>
+
+            <Image x:Name="imageFood" Source="cola600ml.jpg"></Image>
 
         </StackLayout>
+        
 
         <Button x:Name="btnSubmit" Grid.Column="0" Grid.Row="6" HorizontalOptions="Center" Grid.ColumnSpan="2"
                 Text="Add To Basket" VerticalOptions="Center" Clicked="btnSubmit_Clicked"/>

@@ -21,12 +21,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Alimentos.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\MenuBundle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Orders\DetailedMenuCartaViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SlimOrderViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Food\CartaPage.xaml.cs">
       <DependentUpon>CartaPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Pages\SuperTestPage.xaml.cs">
       <DependentUpon>SuperTestPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Pages\ToolBar\OrdersHistoryPage.xaml.cs">
+      <DependentUpon>OrdersHistoryPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\Basket.cs" />
@@ -39,7 +44,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Menu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Ordenes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Tipos.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Navigation\NavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Food\CategoriaCartaPage.xaml.cs">
       <DependentUpon>CategoriaCartaPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -88,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)enums\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Navigation\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Food\ComidasDiaPage.xaml">
@@ -127,6 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\Food\CartaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\ToolBar\OrdersHistoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

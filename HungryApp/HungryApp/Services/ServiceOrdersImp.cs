@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using HungryApp.ViewModels;
 using System.Net.Http;
 using System.Diagnostics;
+using HungryApp.Models.Orders;
 
 namespace HungryApp.Services
 {
@@ -34,9 +35,26 @@ namespace HungryApp.Services
 
         }
 
-        public Task GetSummaryOrders()
+        public async Task<IEnumerable<SlimOrderViewModel>> GetSummaryOrders(int clientId)
         {
-            throw new NotImplementedException();
+
+            _client.BaseAddress = new Uri(string.Format(Constants.GetClientOrders, clientId));
+
+            HttpResponseMessage response = await _client.GetAsync(string.Format(Constants.GetClientOrders, clientId));
+
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsStringAsync();
+
+                var collection = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<SlimOrderViewModel>>(data);
+
+                return collection;
+
+            }
+
+            return null;
+
+
         }
     }
 }

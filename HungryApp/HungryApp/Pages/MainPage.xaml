@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HungryApp.Pages.MainPage" Title="MENU" BackgroundImage="menu4.jpg">
+             x:Class="HungryApp.Pages.MainPage" Title="MENU" BackgroundImage="menu7.jpg">
 
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuSettings" Text="Settings" Order="Secondary"></ToolbarItem>
-        <ToolbarItem Name="MenuAbout" Text="About" Order="Secondary"></ToolbarItem>
-        <ToolbarItem Name="MenuAbout" Text="Orders History" Order="Secondary"></ToolbarItem>
-        <ToolbarItem Name="MenuLogin" StyleId="666" Order="Primary" Clicked="MenuSettings_Clicked">
+        <ToolbarItem Name="MenuSettings" StyleId="T1" Text="Settings" Order="Secondary"></ToolbarItem>
+        <ToolbarItem Name="MenuAbout"    StyleId="T2" Text="About" Order="Secondary" Clicked="MenuSettings_Clicked"/>
+        <ToolbarItem Name="MenuOrders"   StyleId="T3" Text="Orders History" Order="Secondary" Clicked="MenuSettings_Clicked"/>
+        <ToolbarItem Name="MenuLogin"    StyleId="T4" Order="Primary" Clicked="MenuSettings_Clicked">
             
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"
@@ -17,7 +17,7 @@
             
         </ToolbarItem>
 
-        <ToolbarItem Name="MenuBasket" StyleId="5" Order="Primary" Clicked="MenuSettings_Clicked">
+        <ToolbarItem Name="MenuBasket" StyleId="T5" Order="Primary" Clicked="MenuSettings_Clicked">
             
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource"

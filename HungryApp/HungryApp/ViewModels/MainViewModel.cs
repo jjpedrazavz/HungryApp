@@ -9,6 +9,7 @@ namespace HungryApp.ViewModels
 {
     public class MainViewModel
     {
+        public int clientID = 1;
 
         public Basket _MainBasket { get; set; }
 

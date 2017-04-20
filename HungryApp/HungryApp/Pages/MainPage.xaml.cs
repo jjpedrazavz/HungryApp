@@ -1,5 +1,4 @@
-﻿using HungryApp.Navigation;
-using HungryApp.Pages.Food;
+﻿using HungryApp.Pages.Food;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +11,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Data.Common;
 using HungryApp.Pages.Orders;
+using HungryApp.Pages.ToolBar;
 
 namespace HungryApp.Pages
 {
@@ -92,11 +92,18 @@ namespace HungryApp.Pages
         {
             switch((sender as ToolbarItem).StyleId)
             {
-                case "5":
-                    await Navigation.PushAsync(new BasketPage(_viewModelMain._MainBasket));
+                case "T1":
                     break;
-                case "666":
+                case "T2":
                     await Navigation.PushAsync(new SuperTestPage());
+                    break;
+                case "T3":
+                    await Navigation.PushAsync(new OrdersHistoryPage(await _viewModelMain._ServiceOrdersService.GetSummaryOrders(_viewModelMain.clientID)));
+                    break;
+                case "T4":
+                    break;
+                case "T5":
+                    await Navigation.PushAsync(new BasketPage(_viewModelMain._MainBasket));
                     break;
                 default:
                     break;

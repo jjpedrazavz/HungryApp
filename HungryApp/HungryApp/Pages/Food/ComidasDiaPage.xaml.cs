@@ -26,11 +26,17 @@ namespace HungryApp.Pages.Food
 
         }
 
+        protected override void OnAppearing()
+        {
+
+            base.OnAppearing();
+        }
+
+
 
         private void OnListItemMenuSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Navigation.PushAsync(new DetailedBuiltInMenuOrderPage(e.SelectedItem as DetailedBuiltInMenuViewModel));
-
         }
     }
 }

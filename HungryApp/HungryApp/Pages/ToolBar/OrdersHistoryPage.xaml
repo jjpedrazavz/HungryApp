@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HungryApp.Pages.ToolBar.OrdersHistoryPage">
+
+
+
+    <Grid x:Name="MainLayout">
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Label x:Name="Title" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+        <StackLayout Margin="0,5,0,0">
+            <ListView x:Name="OrderHistoryList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView Padding="5">
+                                <Frame Padding="5" OutlineColor="Red">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label x:Name="lblOrden" Text="{Binding OrdenID}" Margin="0,0,5,0"/>
+                                        <Label x:Name="lblFecha" Text="{Binding OrdenFecha}" Margin="0,0,5,0"/>
+                                        <Label x:Name="lblEstadoOrden" Text="{Binding EstadoDescripcion}" Margin="0,0,5,0" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
