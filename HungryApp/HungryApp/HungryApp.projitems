@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Ioc\Ioc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Alimentos.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\MenuBundle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Orders\AlimentosViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Orders\DetailedMenuCartaViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SlimOrderViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\Food\CartaPage.xaml.cs">

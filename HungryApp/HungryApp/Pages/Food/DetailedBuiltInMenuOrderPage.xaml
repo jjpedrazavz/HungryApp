@@ -30,12 +30,9 @@
                 <Label  x:Name="titleMenu" Text="{Binding NameMenu}" Margin="10,5,10,5" FontSize="Large" FontAttributes="Italic"/>
             </StackLayout>
 
-            <StackLayout BackgroundColor="Lime">
-                <Label  x:Name="lblsopaMenu" Text="{Binding SopaNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
-                <Label  x:Name="lblplatoFuerteMenu" Text="{Binding PlatoFuerteNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
-                <Label  x:Name="lblbebidaMenu" Text="{Binding BebidaNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
-                <Label  x:Name="lblpostreMenu" Text="{Binding PostreNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
-                <Label  x:Name="lblcomplementoMenu" Text="{Binding ComplementoNombre}" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <StackLayout x:Name="LayoutComponentes" BackgroundColor="White">
+                <ListView x:Name="listContent" ItemsSource="{Binding Seleccionados}">
+                </ListView>
             </StackLayout>
      
             

@@ -62,7 +62,7 @@
 
             </Grid>
 
-            <Image x:Name="imageFood" Source="cola600ml.jpg"></Image>
+            <Image x:Name="imageFood" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image>
 
         </StackLayout>
         

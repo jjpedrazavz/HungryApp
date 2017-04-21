@@ -29,61 +29,71 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="15"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="15"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="25"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="15"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnComidas" StyleId="1" Text="Comidas Del Dia" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Clicked="GetListClicked"></Button>
-        <Button x:Name="btnCenas"  StyleId="2" Text="Cenas Del Dia" Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="3" Clicked="GetListClicked"></Button>
-        <Button x:Name="btnDesayunos"  StyleId="3" Text="Desayunos Del Dia" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Clicked="GetListClicked"></Button>
-        <Button x:Name="btnCarta"  StyleId="4" Text="Menu a la carta" Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="3" Clicked="GetListClicked"></Button>
-        <ActivityIndicator x:Name="indicator"></ActivityIndicator>
 
+        
+        <StackLayout Grid.Column="0" Grid.Row="0">
 
+            <Image x:Name="Desayunos" StyleId="3" Source="botton_desayuno.png" Margin="10,10,10,10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="GetListClicked"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image x:Name="Comidas" StyleId="1" Source="botton_comida.png" Margin="10,10,10,10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="GetListClicked"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image x:Name="Cenas" StyleId="2" Source="botton_cena_plato.png" Margin="10,10,10,10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="GetListClicked"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image x:Name="Carta" StyleId="4" Source="botton_carta.png" Margin="10,10,10,10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="GetListClicked"></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            
+            
+        </StackLayout>
+
+        <BoxView BackgroundColor="Gray" Opacity="80" Grid.Column="0" Grid.Row="1"/>
+
+        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
+            <Image x:Name="imgFaceBook"  Source="face.png" Margin="20,10,40,10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image x:Name="imgYoutube"  Margin="20,10,40,10" Source="youtube.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image x:Name="ImgInsta" Margin="20,10,40,10" Source="insta.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image x:Name="ImgTwitter" Margin="20,10,40,10" Source="twitter.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
         <!--Seccion redes Sociales.-->
-        <Image x:Name="imgFaceBook" Grid.Row="8" Grid.Column="1" Source="face.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-            </Image.GestureRecognizers>
-        </Image>
-
-        <Image x:Name="imgYoutube"  Grid.Row="8" Grid.Column="3" Source="youtube.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-
-        <Image x:Name="ImgInsta"    Grid.Row="8" Grid.Column="5" Source="insta.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-
-        <Image x:Name="ImgTwitter"  Grid.Row="8" Grid.Column="7" Source="twitter.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-
 
     </Grid>
 </ContentPage>

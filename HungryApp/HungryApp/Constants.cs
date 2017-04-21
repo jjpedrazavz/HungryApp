@@ -6,10 +6,11 @@ namespace HungryApp
 {
     public static class Constants
     {
-        public static string GetBuiltInMenu = "http://192.168.15.5:5000/api/ClientMenu/GetBuildInMenus";
-        public static string GetOrderMenu = "http://192.168.15.5:5000/api/ClientMenu/GetCreateOrder";
-        public static string CreateOrder = "http://192.168.15.5:5000/api/ClientMenu/CreateOrder";
-        public static string GetClientOrders = "http://192.168.15.5:5000/api/ClientMenu/GetClientOrders/{0}";
-        
+        public static string WebPath = "http://hungryweb20170419090103.azurewebsites.net/Content/ImagenesProducto/{0}";
+        public static string GetBuiltInMenu = "http://coreserviceapi.azurewebsites.net/api/ClientMenu/GetBuildInMenus";
+        public static string GetOrderMenu = "http://coreserviceapi.azurewebsites.net/api/ClientMenu/GetCreateOrder";
+        public static string CreateOrder = "http://coreserviceapi.azurewebsites.net/api/ClientMenu/CreateOrder";
+        public static string GetClientOrders = "http://coreserviceapi.azurewebsites.net/api/ClientMenu/GetClientOrders/{0}";
+
     }
 }

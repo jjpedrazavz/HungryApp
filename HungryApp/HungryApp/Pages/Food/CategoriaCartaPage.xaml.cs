@@ -21,42 +21,11 @@ namespace HungryApp.Pages.Food
 
         public CategoriaCartaPage(IEnumerable<Alimentos> alimentos)
 		{
-
+            
             InitializeComponent();
             FoodList.ItemsSource = alimentos;
 
         }
-
-
-        #region Old CODE
-        /*
-        private void btnShowContent_Clicked(object sender, EventArgs e)
-        {
-           
-            CollapseStack((sender as Button).Parent);
-
-        }
-
-        private void CollapseStack(Element parent)
-        {
-            foreach (var item in (parent as StackLayout).Children)
-            {
-                if(item is StackLayout)
-                {
-                    if (item.HeightRequest == 0)
-                    {
-                        item.HeightRequest = 150;
-                    }
-                    else
-                    {
-                        item.HeightRequest = 0;
-                    }
-                }
-
-            }
-        }
-        */
-        #endregion
 
 
         private void TappedElement_ItemSelected(object sender, SelectedItemChangedEventArgs e)

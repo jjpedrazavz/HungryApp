@@ -18,7 +18,8 @@ namespace HungryApp.Pages.Food
 			InitializeComponent();
             MenuLayout.BindingContext = viewModel;
             layoutCountOrders.BindingContext = viewModelSummary;
-            viewModelSummary.Totalprice = viewModel.precio;
+            
+            viewModelSummary.Totalprice = viewModel.Precio;
 
         }
 
@@ -45,14 +46,14 @@ namespace HungryApp.Pages.Food
             if((sender as Button).Text.Equals("+"))
             {
                 viewModelSummary.Quantity++;
-                viewModelSummary.Totalprice += (MenuLayout.BindingContext as DetailedBuiltInMenuViewModel).precio;
+                viewModelSummary.Totalprice += (MenuLayout.BindingContext as DetailedBuiltInMenuViewModel).Precio;
             }
             else
             {
                 if (viewModelSummary.Quantity > 1)
                 {
                     viewModelSummary.Quantity--;
-                    viewModelSummary.Totalprice -= (MenuLayout.BindingContext as DetailedBuiltInMenuViewModel).precio;
+                    viewModelSummary.Totalprice -= (MenuLayout.BindingContext as DetailedBuiltInMenuViewModel).Precio;
                     
                     
                 }

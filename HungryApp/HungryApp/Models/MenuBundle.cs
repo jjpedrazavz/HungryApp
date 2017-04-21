@@ -14,7 +14,7 @@ namespace CoreService.Models
 
         public int MenuBundleId { get; set; }
 
-        public string MenuBundleIdName { get; set; }
+        public string MenuBundleName { get; set; }
 
         public string MenuCategory { get; set; }
 

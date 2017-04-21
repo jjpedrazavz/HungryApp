@@ -51,7 +51,7 @@ namespace HungryApp.Pages
         private async void GetListClicked(object sender, EventArgs e)
         {
 
-            switch((sender as Button).StyleId)
+            switch((sender as Image).StyleId)
             {
                 case "1":
                     await Navigation.PushAsync(new ComidasDiaPage(GetSpecificBuiltMenu("Comidas")));
@@ -111,5 +111,6 @@ namespace HungryApp.Pages
             }
            
         }
+
     }
 }

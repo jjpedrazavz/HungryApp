@@ -4,6 +4,7 @@ using HungryApp.Models.Orders;
 using HungryApp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,15 @@ namespace HungryApp.Pages.Food
             total = alimento.Precio;
             lblQuantity.Text = cantidad.ToString();
             lblPrecioFinal.Text = string.Format("{0} MXN", total);
+
+            if (alimento.FoodImageMapping.Count > 0)
+            {
+                Debug.WriteLine(alimento.FoodImageMapping.FirstOrDefault().AlimentosImage.NameFile);
+                imageFood.Source = ImageSource.FromUri(new Uri(string.Format(
+                        Constants.WebPath, alimento.FoodImageMapping.FirstOrDefault().AlimentosImage.NameFile)));
+            }
+                
+
         }
 
         private void btnQuantity_Clicked(object sender, EventArgs e)
