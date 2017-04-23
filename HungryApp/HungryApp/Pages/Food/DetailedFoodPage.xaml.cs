@@ -30,7 +30,6 @@ namespace HungryApp.Pages.Food
 
             if (alimento.FoodImageMapping.Count > 0)
             {
-                Debug.WriteLine(alimento.FoodImageMapping.FirstOrDefault().AlimentosImage.NameFile);
                 imageFood.Source = ImageSource.FromUri(new Uri(string.Format(
                         Constants.WebPath, alimento.FoodImageMapping.FirstOrDefault().AlimentosImage.NameFile)));
             }
@@ -70,12 +69,33 @@ namespace HungryApp.Pages.Food
             menuViewModel.Precio = (BindingContext as Alimentos).Precio;
             menuViewModel.Total = (decimal)total;
 
-            var basket = Ioc.Ioc.Resolve<Basket>();
 
-            basket.MenuSeleccionado.Add(menuViewModel);
-            basket.TotalFinalOrden += (double)menuViewModel.Total;
+            AddOrder(menuViewModel);
 
             await Navigation.PopAsync();
+
+        }
+
+        private void AddOrder(DetailedMenuCartaViewModel menuViewModel)
+        {
+            var basket = Ioc.Ioc.Resolve<Basket>();
+            bool containts=false;
+
+            foreach (var item in basket.MenuSeleccionado)
+            {
+                if (item.Nombre.Equals(menuViewModel.Nombre))
+                {
+                    item.Cantidad += menuViewModel.Cantidad;
+                    item.Total += menuViewModel.Total;
+                    containts = true;
+                }
+            }
+            if (!containts)
+            {
+                basket.MenuSeleccionado.Add(menuViewModel);
+            }
+                
+            basket.TotalFinalOrden += (double)menuViewModel.Total;
 
         }
     }

@@ -19,7 +19,8 @@
 
 
         <Label x:Name="Title" HorizontalOptions="Center" VerticalOptions="Center" Grid.Column="0" Grid.Row="0"/>
-        <StackLayout Margin="0,5,0,0">
+
+        <StackLayout Margin="0,5,0,0" Grid.Column="0" Grid.Row="1">
             <ListView x:Name="OrderHistoryList">
                 <ListView.ItemTemplate>
                     <DataTemplate>

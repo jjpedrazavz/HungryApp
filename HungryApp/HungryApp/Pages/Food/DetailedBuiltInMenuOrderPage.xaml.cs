@@ -29,17 +29,12 @@ namespace HungryApp.Pages.Food
             viewModelSummary.BundleId = (MenuLayout.BindingContext as DetailedBuiltInMenuViewModel).BundleId;
             viewModelSummary.NameMenu = (MenuLayout.BindingContext as DetailedBuiltInMenuViewModel).NameMenu;
 
-            var context = Ioc.Ioc.Resolve<Basket>();
-
-            context.BuiltInMenuSeleccionado.Add(viewModelSummary);
-            context.TotalFinalOrden += viewModelSummary.Totalprice;
-
-            Debug.WriteLine("Grabado Bundle: "+viewModelSummary.BundleId);
-
+            AddOrder(viewModelSummary);
 
             await Navigation.PopAsync();
   
         }
+
 
         private void btnQuantity_Clicked(object sender, EventArgs e)
         {
@@ -61,5 +56,34 @@ namespace HungryApp.Pages.Food
             }
 
         }
+
+
+        private void AddOrder(SummaryBuiltInMenuViewModel viewModelSummary)
+        {
+            var context = Ioc.Ioc.Resolve<Basket>();
+
+            bool containts = false;
+
+            foreach (var item in context.BuiltInMenuSeleccionado)
+            {
+                if (item.NameMenu.Equals(viewModelSummary.NameMenu))
+                {
+                    item.Quantity += viewModelSummary.Quantity;
+                    item.Totalprice += viewModelSummary.Totalprice;
+                    containts = true;
+                }
+            }
+            if (!containts)
+            {
+                context.BuiltInMenuSeleccionado.Add(viewModelSummary);
+            }
+
+            context.TotalFinalOrden += viewModelSummary.Totalprice;
+
+        }
+
+
+
     }
+
 }

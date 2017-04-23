@@ -7,10 +7,9 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="70"></RowDefinition>
-            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -18,20 +17,24 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-
         <Image Source="Banner2.png" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand"></Image>
 
-        <Label Text="MENU" FontAttributes="Bold" FontSize="Large" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
-               HorizontalOptions="Center" VerticalOptions="Center"/>
-
-        <StackLayout x:Name="MenuLayout" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2">
-
+        <StackLayout x:Name="MenuLayout" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+            
             <StackLayout BackgroundColor="Orange" Margin="0,0,0,5">
-                <Label  x:Name="titleMenu" Text="{Binding NameMenu}" Margin="10,5,10,5" FontSize="Large" FontAttributes="Italic"/>
+                <Label  x:Name="titleMenu" Text="{Binding NameMenu}" Margin="10,5,10,5" FontSize="Large" FontAttributes="Bold"/>
             </StackLayout>
+
+            <Label  x:Name="lblDesc" Text="Incluye los siguientes platillos: " Grid.Column="0" Grid.Row="0" Margin="10,2,2,5" FontSize="Large" FontAttributes="Italic"/>
 
             <StackLayout x:Name="LayoutComponentes" BackgroundColor="White">
                 <ListView x:Name="listContent" ItemsSource="{Binding Seleccionados}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell BindingContext="{Binding}" Text="{Binding}" Detail="Racion para una persona" TextColor="Black" >
+                            </TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
      
@@ -39,25 +42,20 @@
         </StackLayout>
 
 
-        <StackLayout x:Name="layoutCountOrders" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,5,0,5" >
-            
-            <StackLayout Orientation="Horizontal" Padding="0,0,10,0" HorizontalOptions="Center" VerticalOptions="Center">
+        <StackLayout x:Name="layoutCountOrders"  Orientation="Horizontal" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"
+                     Grid.Row="2" Grid.ColumnSpan="2" Margin="0,5,0,5" >
+
                 <Label Text="Cantidad :" Margin="0,5,5,0" FontSize="Medium"/>
                 <Button x:Name="btnMinus" Text="-" BorderRadius="50" HeightRequest="40" WidthRequest="40" Clicked="btnQuantity_Clicked"></Button>
                 <Label x:Name="lblQuantity" Text="{Binding Quantity}" Margin="0,8,5,0" FontAttributes="Bold" ></Label>
                 <Button x:Name="btnPlus" Text="+" BorderRadius="50" HeightRequest="40" WidthRequest="40" Clicked="btnQuantity_Clicked"></Button>
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal" Padding="0,5,10,0">
-                <Label x:Name="lblTotal"   Text="Precio Final: " FontAttributes="Bold"></Label>
-                <Label x:Name="lblPrecio"  Text="{Binding Totalprice, StringFormat='{0} MXN'}" FontAttributes="Bold"></Label>
-            </StackLayout>
+                <Label x:Name="lblPrecio"  Text="{Binding Totalprice, StringFormat='{0} MXN'}" FontAttributes="Bold" Margin="5,5,0,5"></Label>
 
         </StackLayout>
         
             
-       <Button x:Name="btnProcess" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,0,20"
-               Text="Add Order to Basket" Clicked="ProcessClickEvent" />
+       <Button x:Name="btnProcess" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center"
+               Text="Ordenar" Clicked="ProcessClickEvent" />
     </Grid>
 
 </ContentPage>

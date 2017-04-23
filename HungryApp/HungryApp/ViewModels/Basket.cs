@@ -84,7 +84,7 @@ namespace HungryApp.Models.Basket
 
                 canExecute: () =>
                 {
-                    bool respuesta = TotalFinalOrden == 0 ? false : true;
+                    bool respuesta = (int)TotalFinalOrden == 0 ? false : true;
                     VerifyTitleBasket(respuesta);
                     return respuesta;
                 }

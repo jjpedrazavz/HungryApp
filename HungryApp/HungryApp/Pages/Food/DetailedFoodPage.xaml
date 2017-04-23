@@ -3,6 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HungryApp.Pages.Food.DetailedFoodPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Bebidas" TargetType="Image">
+                <Setter Property="Source" Value="banner_bebidas.jpg"/>
+            </Style>
+            <Style x:Key="Sopas" TargetType="Image">
+                <Setter Property="Source" Value="banner_sopas_03.png"/>
+            </Style>
+            <Style x:Key="Postres" TargetType="Image">
+                <Setter Property="Source" Value="banner_postre_06.jpg"/>
+            </Style>
+            <Style x:Key="Complementos" TargetType="Image">
+                <Setter Property="Source" Value="banner_complemento.jpg"/>
+            </Style>
+            <Style x:Key="Bocadillos" TargetType="Image">
+                <Setter Property="Source" Value="banner_bocadillo.jpg"/>
+            </Style>
+            <Style x:Key="PlatosFuertes" TargetType="Image">
+                <Setter Property="Source" Value="banner_plato_fuerte.png"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    
 
     <Grid>
 
@@ -14,61 +39,44 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="15"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
 
         <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Source="BannerAlimentos.png" HorizontalOptions="FillAndExpand"/>
 
-        <Label Text="MENU" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" FontAttributes="Bold"/>
-
-        <Frame BackgroundColor="Orange" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,0,5">
-            
-            <Label x:Name="lblName" Text="{Binding Nombre}" FontAttributes="Italic" FontSize="Medium" HorizontalOptions="Start" TextColor="White"/>
-        </Frame>
+            <Label x:Name="lblName" Text="{Binding Nombre}" Grid.Column="0" Grid.Row="1"
+                   FontAttributes="Italic" FontSize="Medium" HorizontalOptions="Start" TextColor="Orange"/>
 
 
-        <StackLayout Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Horizontal" Margin="25,5,10,25">
+           <Label x:Name="lblDescription" Grid.Column="0" Grid.Row="2" Grid.RowSpan="3" Margin="0,0,20,0"  Text="{Binding Descripcion}" FontAttributes="Bold"/>
 
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+           <Image x:Name="imageFood" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3"
+               VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
 
-            <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-            
-            <Label x:Name="lblDescription" Grid.Column="0" Grid.Row="0" Margin="0,0,20,0"  Text="{Binding Descripcion}" FontAttributes="Bold"/>
+            <Label x:Name="lblCantidad" Grid.Column="0" Grid.Row="5" Margin="30,30,0,0" FontAttributes="Bold"
+                   Text="Cantidad" HorizontalOptions="Start" VerticalOptions="End"></Label>
 
-                <StackLayout Orientation="Horizontal" Padding="0,5,0,5" Grid.Column="0" Grid.Row="1">
-                    <Button x:Name="btnMinus" StyleId="b-" Image="buttonMinus.png" BorderRadius="50" HeightRequest="35" WidthRequest="40" Clicked="btnQuantity_Clicked"></Button>
-                    <Label x:Name="lblQuantity" Margin="0,5,0,5" TextColor="Red" FontAttributes="Bold" FontSize="Large"></Label>
-                    <Button x:Name="btnPlus" StyleId="b+" Image="buttonPlus.png" BorderRadius="50" HeightRequest="35" WidthRequest="40"
+            <Label x:Name="lblPrecioFinal"  Grid.Column="1" Grid.Row="5" Margin="0,0,25,0"
+                   FontAttributes="Bold" FontSize="Medium" HorizontalOptions="End"></Label>
+
+        <StackLayout Grid.Column="0" Grid.Row="6" Grid.RowSpan="2" Orientation="Horizontal" Margin="10,0,10,0">
+
+                    <Button x:Name="btnMinus" Text="-" TextColor="Green" FontSize="Large" StyleId="b-" BorderRadius="50" Margin="0,5,0,25"
+                            HeightRequest="20" WidthRequest="40" Clicked="btnQuantity_Clicked"></Button>
+                    <Label x:Name="lblQuantity" Margin="0,25,0,25" TextColor="Red" FontAttributes="Bold" FontSize="Large"></Label>
+            <Button x:Name="btnPlus" StyleId="b+" Text="+"  BorderRadius="50" HeightRequest="20" WidthRequest="40" Margin="0,5,0,25"
                         Clicked="btnQuantity_Clicked" FontAttributes="Bold" FontSize="Large" TextColor="Green">
                     </Button>
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal" Padding="0,5,10,0" Grid.Column="0" Grid.Row="2">
-                    <Label x:Name="lblTotal"   Text="Costo: " FontAttributes="Bold" FontSize="Medium"></Label>
-                    <Label x:Name="lblPrecioFinal"  FontAttributes="Bold" FontSize="Medium"></Label>
-                </StackLayout>
-
-            </Grid>
-
-            <Image x:Name="imageFood" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image>
 
         </StackLayout>
-        
 
-        <Button x:Name="btnSubmit" Grid.Column="0" Grid.Row="6" HorizontalOptions="Center" Grid.ColumnSpan="2"
-                Text="Add To Basket" VerticalOptions="Center" Clicked="btnSubmit_Clicked"/>
+        <Button x:Name="btnSubmit" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" Text="Ordenar" VerticalOptions="Center" 
+                HorizontalOptions="Center" Clicked="btnSubmit_Clicked"/>
 
     </Grid>
     

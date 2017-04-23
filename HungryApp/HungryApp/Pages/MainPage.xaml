@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HungryApp.Pages.MainPage" Title="MENU" BackgroundImage="menu7.jpg">
+             x:Class="HungryApp.Pages.MainPage" BackgroundImage="menu7.jpg">
 
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="MenuSettings" StyleId="T1" Text="Settings" Order="Secondary"></ToolbarItem>
+        <ToolbarItem Name="MenuSettings" StyleId="T1" Text="Settings" Order="Secondary" Clicked="MenuSettings_Clicked"></ToolbarItem>
         <ToolbarItem Name="MenuAbout"    StyleId="T2" Text="About" Order="Secondary" Clicked="MenuSettings_Clicked"/>
         <ToolbarItem Name="MenuOrders"   StyleId="T3" Text="Orders History" Order="Secondary" Clicked="MenuSettings_Clicked"/>
         <ToolbarItem Name="MenuLogin"    StyleId="T4" Order="Primary" Clicked="MenuSettings_Clicked">
@@ -24,25 +24,27 @@
                     Android="shopping.png"/>
             </ToolbarItem.Icon>
         </ToolbarItem>
+
+      
         
     </ContentPage.ToolbarItems>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="15"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-
+    <Grid x:Name="MainLayout">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
-        
-        <StackLayout Grid.Column="0" Grid.Row="0">
+        <Image x:Name="imgInicio" Grid.Column="0" Grid.Row="0" Source="banner_inicio.jpg" Margin="0,0,0,5"/>
+        <ActivityIndicator x:Name="LoadingData" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Margin="150,200,150,150"/>
 
-            <Image x:Name="Desayunos" StyleId="3" Source="botton_desayuno.png" Margin="10,10,10,10">
+        <ScrollView Grid.Column="0" Grid.Row="1">
+            <StackLayout x:Name="LayoutMenus" IsVisible="False" IsEnabled="False">
+            <Image x:Name="Desayunos" StyleId="3" Source="botton_desayuno.png" Margin="10,5,10,10">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="GetListClicked"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
@@ -62,38 +64,9 @@
                     <TapGestureRecognizer Tapped="GetListClicked"></TapGestureRecognizer>
                 </Image.GestureRecognizers>
             </Image>
-            
-            
         </StackLayout>
+    </ScrollView>
+        
+  </Grid>
 
-        <BoxView BackgroundColor="Gray" Opacity="80" Grid.Column="0" Grid.Row="1"/>
-
-        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="2">
-            <Image x:Name="imgFaceBook"  Source="face.png" Margin="20,10,40,10">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
-                </Image.GestureRecognizers>
-            </Image>
-
-            <Image x:Name="imgYoutube"  Margin="20,10,40,10" Source="youtube.png">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Image.GestureRecognizers>
-            </Image>
-
-            <Image x:Name="ImgInsta" Margin="20,10,40,10" Source="insta.png">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Image.GestureRecognizers>
-            </Image>
-
-            <Image x:Name="ImgTwitter" Margin="20,10,40,10" Source="twitter.png">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Image.GestureRecognizers>
-            </Image>
-        </StackLayout>
-        <!--Seccion redes Sociales.-->
-
-    </Grid>
 </ContentPage>

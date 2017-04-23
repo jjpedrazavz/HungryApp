@@ -1,4 +1,7 @@
 ﻿using HungryApp.Contratos;
+using HungryApp.enums;
+using HungryApp.Models.Basket;
+using HungryApp.Pages.Orders;
 using HungryApp.Services;
 using HungryApp.ViewModels;
 using System;
@@ -17,26 +20,41 @@ namespace HungryApp.Pages.Food
 	{
         
 
-        public ComidasDiaPage(List<DetailedBuiltInMenuViewModel> Comidas)
+        public ComidasDiaPage(List<DetailedBuiltInMenuViewModel> Comidas, Menus tipo)
 		{
             
 
             InitializeComponent();
+
+            switch (tipo)
+            {
+                case Menus.Cenas:
+                    imgHeader.Style = (Style)Resources["CenasS"];
+                    break;
+                case Menus.Comidas:
+                    imgHeader.Style = (Style)Resources["ComidasS"];
+                    break;
+                case Menus.Desayunos:
+                    imgHeader.Style = (Style)Resources["DesayunosS"];
+                    break;
+                default:
+                    break;
+            }
+
+
             listContainer.ItemsSource = Comidas;
 
         }
-
-        protected override void OnAppearing()
-        {
-
-            base.OnAppearing();
-        }
-
 
 
         private void OnListItemMenuSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Navigation.PushAsync(new DetailedBuiltInMenuOrderPage(e.SelectedItem as DetailedBuiltInMenuViewModel));
+        }
+
+        private void Basket_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new BasketPage(Ioc.Ioc.Resolve<Basket>()));
         }
     }
 }

@@ -12,6 +12,8 @@ using Xamarin.Forms.Xaml;
 using System.Data.Common;
 using HungryApp.Pages.Orders;
 using HungryApp.Pages.ToolBar;
+using HungryApp.enums;
+using HungryApp.Pages.Account;
 
 namespace HungryApp.Pages
 {
@@ -38,8 +40,16 @@ namespace HungryApp.Pages
 
         private  async void LoadMenusCollection(BuiltInMenuViewModel viewModel)
         {
+            LoadingData.IsRunning = true;
 
             viewModel.MenusCollection = await _viewModelMain._menuFoodService.GetBuiltInMenus();
+            _viewModelMain._MenuCarta = await _viewModelMain._menuFoodService.GetMenuElements();
+
+            await Task.Delay(4000);
+
+            LoadingData.IsRunning = false;
+            LayoutMenus.IsVisible = true;
+            LayoutMenus.IsEnabled = true;
 
         }
 
@@ -54,21 +64,19 @@ namespace HungryApp.Pages
             switch((sender as Image).StyleId)
             {
                 case "1":
-                    await Navigation.PushAsync(new ComidasDiaPage(GetSpecificBuiltMenu("Comidas")));
+                    await Navigation.PushAsync(new ComidasDiaPage(GetSpecificBuiltMenu("Comidas"),Menus.Comidas));
 
                     break;
                 case "2":
 
-                    await Navigation.PushAsync(new ComidasDiaPage(GetSpecificBuiltMenu("Cenas")));
+                    await Navigation.PushAsync(new ComidasDiaPage(GetSpecificBuiltMenu("Cenas"), Menus.Cenas));
 
                     break;
                 case "3":
-                    await Navigation.PushAsync(new ComidasDiaPage(GetSpecificBuiltMenu("Desayunos")));
+                    await Navigation.PushAsync(new ComidasDiaPage(GetSpecificBuiltMenu("Desayunos"), Menus.Desayunos));
                     break;
 
                 case "4":
-
-                    _viewModelMain._MenuCarta = await _viewModelMain._menuFoodService.GetMenuElements();
 
                     await Navigation.PushAsync(new CartaPage(_viewModelMain._MenuCarta));
 
@@ -95,12 +103,12 @@ namespace HungryApp.Pages
                 case "T1":
                     break;
                 case "T2":
-                    await Navigation.PushAsync(new SuperTestPage());
                     break;
                 case "T3":
                     await Navigation.PushAsync(new OrdersHistoryPage(await _viewModelMain._ServiceOrdersService.GetSummaryOrders(_viewModelMain.clientID)));
                     break;
                 case "T4":
+                    await Navigation.PushAsync(new LoginPage());
                     break;
                 case "T5":
                     await Navigation.PushAsync(new BasketPage(_viewModelMain._MainBasket));

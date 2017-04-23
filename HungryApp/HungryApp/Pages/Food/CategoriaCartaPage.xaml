@@ -3,8 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HungryApp.Pages.Food.CategoriaCartaPage">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="shopping.png" Order="Primary" Clicked="Basket_Tapped"/>
+    </ContentPage.ToolbarItems>
 
-            <StackLayout x:Name="LayoutFoodContent" HeightRequest="0">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MSopas" TargetType="Image">
+                <Setter Property="Source" Value="banner_sopas_03.png"/>
+            </Style>
+            <Style x:Key="MPlatosFuertes" TargetType="Image">
+                <Setter Property="Source" Value="banner_plato_fuerte.png"/>
+            </Style>
+            <Style x:Key="MBebidas" TargetType="Image">
+                <Setter Property="Source" Value="banner_bebidas.jpg"/>
+            </Style>
+            <Style x:Key="MPostres" TargetType="Image">
+                <Setter Property="Source" Value="banner_postre_06.jpg"/>
+            </Style>
+            <Style x:Key="MComplementos" TargetType="Image">
+                <Setter Property="Source" Value="banner_complemento.jpg"/>
+            </Style>
+            <Style x:Key="MBocadillos" TargetType="Image">
+                <Setter Property="Source" Value="banner_bocadillo.jpg"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+       
+        
+    <Image x:Name="imgHeader" Grid.Column="0" Grid.Row="0" />
+
+    <ScrollView Grid.Column="0" Grid.Row="1">
+    <StackLayout x:Name="LayoutFoodContent" >
                 <ListView x:Name="FoodList" ItemSelected="TappedElement_ItemSelected">
                     <ListView.RowHeight>
                         <OnPlatform x:TypeArguments="x:Int32"
@@ -20,7 +61,7 @@
                                 <ContentView Padding="5">
                                     <Frame Padding="10" OutlineColor="Accent">
                                         <StackLayout Orientation="Horizontal">
-                                            <Image Source="cola600ml.jpg" HeightRequest="50" WidthRequest="50"/>
+                                          <Image Source="IconoGenerico.png" HeightRequest="50" WidthRequest="50"/>
                                             <StackLayout>
                                                 <Label TextColor="Black" Text="{Binding Nombre}" FontAttributes="Bold"></Label>
                                                 <Label TextColor="Black"  Text="{Binding Precio, StringFormat='Precio {0} MXN'}" FontAttributes="Bold"></Label>
@@ -33,5 +74,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+    </ScrollView>
+  </Grid>
 
 </ContentPage>

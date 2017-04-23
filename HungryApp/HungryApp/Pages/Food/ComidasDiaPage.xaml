@@ -2,17 +2,54 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HungryApp.Pages.Food.ComidasDiaPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="shopping.png" Order="Primary" Clicked="Basket_Tapped"/>
+    </ContentPage.ToolbarItems>
     
-    <StackLayout x:Name="MainContainer">
-        <ListView x:Name="listContainer" ItemSelected="OnListItemMenuSelected" SeparatorVisibility="None">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ImageCell ImageSource="cola600ml.jpg"
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DesayunosS" TargetType="Image">
+                <Setter Property="Source" Value="banner_desayunos.jpg"></Setter>
+            </Style>
+            <Style x:Key="ComidasS" TargetType="Image">
+                <Setter Property="Source" Value="banner_comidas.jpg"></Setter>
+            </Style>
+            <Style x:Key="CenasS" TargetType="Image">
+                <Setter Property="Source" Value="banner_cenas.jpg"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Image x:Name="imgHeader" Grid.Column="0" Grid.Row="0"></Image>
+
+        <StackLayout x:Name="MainContainer" Grid.Column="0" Grid.Row="1">
+            <ListView x:Name="listContainer" ItemSelected="OnListItemMenuSelected" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell ImageSource="IconoGenerico.png"
                                Text="{Binding NameMenu}"
-                               Detail="{Binding precio, StringFormat='Precio {0} MXN'}">
-                    </ImageCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                               Detail="{Binding Precio, StringFormat='Precio {0} MXN'}">
+                        </ImageCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Grid>
 </ContentPage>

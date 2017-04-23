@@ -22,7 +22,6 @@ namespace HungryApp.InitModulos
             builder.RegisterType<MainPage>().SingleInstance();
             builder.Register(x => new NavigationPage(x.Resolve<MainPage>())
             { BarBackgroundColor = Color.Orange,
-              Title="Menu",
               BarTextColor=Color.White}).AsSelf().SingleInstance();
 
             builder.RegisterType<HttpClient>().SingleInstance();

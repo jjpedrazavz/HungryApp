@@ -26,8 +26,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="20"></RowDefinition>
+                    <RowDefinition Height="50"></RowDefinition>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -102,7 +102,7 @@
                 <Label x:Name="lblTotalFinal" Grid.Column="0" Grid.Row="2"
                        Text="{Binding TotalFinalOrden, StringFormat='Total a pagar: {0} MXN'}" VerticalOptions="Center"></Label>
                 
-                <Button x:Name="btnOrder" Text="Ordenar" Grid.Column="0" Grid.Row="3" HorizontalOptions="End" VerticalOptions="Center"
+                <Button x:Name="btnOrder" Text="Pagar" Grid.Column="0" Grid.Row="3" Margin="0,0,40,0" HorizontalOptions="End" VerticalOptions="Center"
                         Command="{Binding CreateOrderCommand}"/>
             
             </Grid>

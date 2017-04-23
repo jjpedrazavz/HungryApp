@@ -17,7 +17,7 @@ namespace HungryApp
 		{
 			InitializeComponent();
 
-            MainPage = Ioc.Ioc.Resolve<NavigationPage>();
+            MainPage = new IntroPage();
 		}
 
 		protected override void OnStart ()

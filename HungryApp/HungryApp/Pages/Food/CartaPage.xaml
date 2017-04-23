@@ -3,56 +3,64 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HungryApp.Pages.Food.CartaPage">
 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Image">
-                <Setter Property="Margin" Value="80,10,80,10"/>
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+        <Image x:Name="imgHeader" Source="banner_inicio.jpg" Grid.Row="0" Grid.Column="0"/>
+        
+
+        <ScrollView Grid.Column="0" Grid.Row="1">
+            <StackLayout>
+
+                <Image x:Name="imgSopas" StyleId="1"  Source="CatSopas.png" Margin="70,10,70,10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image x:Name="imgPlatosFuertes" StyleId="3"  Source="CatplatoFuerte.png" Margin="70,10,70,10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image x:Name="imgPostres" StyleId="4"  Source="CatPostres.png" Margin="70,10,70,10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image x:Name="imgBebidas" StyleId="2"  Source="CatBebidas.png" Margin="70,10,70,10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image x:Name="imgBocadillos"  StyleId="6"  Source="CatBocadillos.png" Margin="70,10,70,10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image x:Name="imgComplementos" StyleId="5"  Source="CatComplementos.png" Margin="70,10,70,10">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </StackLayout>
+        </ScrollView>
 
 
-    <ScrollView>
-    <StackLayout>
-
-            <Image x:Name="imgSopas" StyleId="1" Grid.Column="0" Grid.Row="0" Source="CatSopas.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-
-        <Image x:Name="imgPlatosFuertes" StyleId="3" Grid.Column="1" Grid.Row="0" Source="CatplatoFuerte.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-
-        <Image x:Name="imgPostres" StyleId="4" Grid.Column="0" Grid.Row="1" Source="CatPostres.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-
-        <Image x:Name="imgBebidas" StyleId="2" Grid.Column="1" Grid.Row="1" Source="CatBebidas.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-
-        <Image x:Name="imgBocadillos"  StyleId="6" Grid.Column="0" Grid.Row="2" Source="CatBocadillos.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-
-        <Image x:Name="imgComplementos" StyleId="5" Grid.Column="1" Grid.Row="2" Source="CatComplementos.png">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-
-    </StackLayout>
-    </ScrollView>
+    </Grid>
+    
+    
 
 </ContentPage>

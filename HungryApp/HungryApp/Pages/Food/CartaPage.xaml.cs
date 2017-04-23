@@ -32,7 +32,7 @@ namespace HungryApp.Pages.Food
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
 
-            Navigation.PushAsync(new CategoriaCartaPage(CreateListByCategory((sender as Image).StyleId)));
+            Navigation.PushAsync(new CategoriaCartaPage(CreateListByCategory((sender as Image).StyleId), (sender as Image).StyleId));
 
         }
     }
